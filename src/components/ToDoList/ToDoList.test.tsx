@@ -12,7 +12,7 @@ describe('<ToDoList />', () => {
   let toDoListComponent: Enzyme.ShallowWrapper;
 
   beforeEach(() => {
-    wrapper = shallow(<ToDoList items={[]} />);
+    wrapper = shallow(<ToDoList items={[]} onDelete={jest.fn} />);
     toDoListComponent = wrapper.find(`[data-test="component-to-do-list"]`)
   });
 

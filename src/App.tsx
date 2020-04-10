@@ -9,14 +9,19 @@ const App: React.FC = () => {
 
   const addToDo = (text: string) => {
     const newTodo = { id: `t${nextID}`, text };
-    setItems([ ...items, newTodo]);
+    setItems(prevItems => [...prevItems, newTodo]);
     setNextID(nextID + 1);
+  }
+
+  const deleteToDo = (id: string) => {
+    const updatedItems: ToDo[] = items.filter(item => item.id !== id);
+    setItems(updatedItems);
   }
 
   return (
     <div className="App">
       <NewToDo onAdd={addToDo} />
-      <ToDoList items={items} />
+      <ToDoList items={items} onDelete={deleteToDo}  />
     </div>
   );
 }
