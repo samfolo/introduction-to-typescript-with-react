@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import ToDoList from './components/ToDoList/ToDoList';
 import NewToDo from './components/NewToDo/NewToDo';
+import { ToDo } from './todo.model';
 
 const App: React.FC = () => {
-  const [items, setItems] = useState([{ id: 't0', text: 'Finish the course' }]);
+  const [items, setItems] = useState<ToDo[]>([{ id: 't0', text: 'Finish the course' }]);
   const [nextID, setNextID] = useState(1);
 
   const addToDo = (text: string) => {
